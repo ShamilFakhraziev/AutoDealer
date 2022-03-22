@@ -1,0 +1,16 @@
+<fetch version="1.0" output-format="xml-platform" mapping="logical" distinct="true">
+  <entity name="adlr_credit">
+    <attribute name="adlr_creditid" />
+    <attribute name="adlr_name" />
+    <attribute name="createdon" />
+    <order attribute="adlr_name" descending="false" />
+    <link-entity name="adlr_adlr_credit_adlr_auto" from="adlr_creditid" to="adlr_creditid" visible="false" intersect="true">
+      <link-entity name="adlr_auto" from="adlr_autoid" to="adlr_autoid" alias="ab">
+        <attribute name="adlr_modelid"/>
+        <filter type="and">
+          <condition attribute="adlr_brandid" operator="eq" uiname="Mercedes-Benz" uitype="adlr_brand" value="{C622DCA0-C598-EC11-B400-000D3AAD2912}" />
+        </filter>
+      </link-entity>
+    </link-entity>
+  </entity>
+</fetch>

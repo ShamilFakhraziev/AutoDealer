@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <script type="text/javascript" src="ClientGlobalContext.js.aspx"></script>
+        <script>
+            document.onreadystatechange = function(){
+                if(document.readyState == "complete"){
+                    OnDocumentLoad();
+                }
+            }
+    
+            function OnDocumentLoad(){
+                
+                var brandName = parent.Xrm.Page.getAttribute("adlr_name").getValue();
+                var brandId = parent.Xrm.Page.data.entity.getId();
+
+                var fetchXml = `?fetchXml=<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='true'><entity name='adlr_credit'><attribute name='adlr_creditid' /><attribute name='adlr_name' /><attribute name='createdon' /><attribute name='adlr_creditperiod' /><order attribute='adlr_name' descending='false' /><link-entity name='adlr_adlr_credit_adlr_auto' from='adlr_creditid' to='adlr_creditid' visible='false' intersect='true'><link-entity name='adlr_auto' from='adlr_autoid' to='adlr_autoid' alias='af'><attribute name='adlr_modelid'/><filter type='and'><condition attribute='adlr_brandid' operator='eq' uiname='${brandName}' uitype='adlr_brand' value='${brandId}' /></filter></link-entity></link-entity></entity></fetch>`;
+    
+                Xrm.WebApi.retrieveMultipleRecords("adlr_credit", fetchXml).then(
+                    function success(result) {
+                        for (var i = 0; i < result.entities.length; i++) {
+                            console.log(result.entities[i]);
+                            let row =  "<tr>"+
+                                            "<td>"+
+                                                "<a target=\"_blank\" href=\"" + 
+                                                    `https://org0e05f72d.crm4.dynamics.com/main.aspx?app=d365default&forceUCI=1&pagetype=entityrecord&etn=adlr_credit&id=${result.entities[i].adlr_creditid} \">`+ 
+                                                    result.entities[i].adlr_name +
+                                                "</a>"+
+                                            "</td>" + 
+                                            "<td><a target=\"_blank\" href=\"" +
+                                                    `https://org0e05f72d.crm4.dynamics.com/main.aspx?app=d365default&forceUCI=1&pagetype=entityrecord&etn=adlr_model&id=${result.entities[i]['af.adlr_modelid']} \">` + 
+                                                    result.entities[i]['af.adlr_modelid@OData.Community.Display.V1.FormattedValue']+
+                                                "</a>"+
+                                            "</td>"+
+                                            "<td>" +result.entities[i].adlr_creditperiod + "</td>"+
+                                        "</tr>";
+                            let tbodyHtml = document.getElementById("creditInfoRow").innerHTML + row;
+                            document.getElementById("creditInfoRow").innerHTML = tbodyHtml;
+                        }                    
+                    },
+                    function (error) {
+                        console.log(error.message);
+                    }
+                );
+              }   
+        </script>
+        <style>
+            body{
+                font-style: normal;
+                font-variant: normal;
+                font-weight: normal;
+                font-size: 14px;
+                font-family: 'SegoeUI', 'Segoe UI';
+                background: white;
+                color: black;                    
+            }
+            a{
+                text-decoration: none;
+                border: 0;
+                margin: 0;
+                padding: 0;
+            }
+            #content { 
+              display: grid;
+              grid-template-rows: 1fr 1fr 1fr;
+              grid-template-columns: 1fr 1fr 1fr;
+              grid-gap: 2vw;
+              }
+            #content > tr,th,td {
+              font-size: 4.4vw;
+              padding: .5em;
+              text-align: center;
+            }
+            </style>
+    </head>
+    <body>
+        <div id="content" class="wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Модель</th>
+                        <th>Срок кредита(дней)</th>
+                    </tr>
+                </thead>
+                <tbody id="creditInfoRow">
+
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

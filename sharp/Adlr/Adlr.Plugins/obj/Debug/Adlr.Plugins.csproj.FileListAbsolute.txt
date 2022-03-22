@@ -1,0 +1,11 @@
+C:\Users\Shamil\Documents\crmtest\sharp\Adlr\Adlr.Plugins\bin\Debug\Adlr.Plugins.dll
+C:\Users\Shamil\Documents\crmtest\sharp\Adlr\Adlr.Plugins\bin\Debug\Adlr.Plugins.pdb
+C:\Users\Shamil\Documents\crmtest\sharp\Adlr\Adlr.Plugins\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+C:\Users\Shamil\Documents\crmtest\sharp\Adlr\Adlr.Plugins\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Shamil\Documents\crmtest\sharp\Adlr\Adlr.Plugins\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
+C:\Users\Shamil\Documents\crmtest\sharp\Adlr\Adlr.Plugins\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\Shamil\Documents\crmtest\sharp\Adlr\Adlr.Plugins\obj\Debug\Adlr.Plugins.csproj.CoreCompileInputs.cache
+C:\Users\Shamil\Documents\crmtest\sharp\Adlr\Adlr.Plugins\obj\Debug\Adlr.Plugins.csproj.CopyComplete
+C:\Users\Shamil\Documents\crmtest\sharp\Adlr\Adlr.Plugins\obj\Debug\Adlr.Plugins.dll
+C:\Users\Shamil\Documents\crmtest\sharp\Adlr\Adlr.Plugins\obj\Debug\Adlr.Plugins.pdb
+C:\Users\Shamil\Documents\crmtest\sharp\Adlr\Adlr.Plugins\obj\Debug\Adlr.Plugins.csproj.AssemblyReference.cache

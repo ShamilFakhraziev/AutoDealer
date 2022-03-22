@@ -1,0 +1,13 @@
+C:\Users\Shamil\Documents\crmtest\sharp\Adlr\Adlr.Workflows\bin\Debug\Adlr.Workflows.dll
+C:\Users\Shamil\Documents\crmtest\sharp\Adlr\Adlr.Workflows\bin\Debug\Adlr.Workflows.pdb
+C:\Users\Shamil\Documents\crmtest\sharp\Adlr\Adlr.Workflows\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+C:\Users\Shamil\Documents\crmtest\sharp\Adlr\Adlr.Workflows\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\Shamil\Documents\crmtest\sharp\Adlr\Adlr.Workflows\bin\Debug\Microsoft.Xrm.Sdk.Workflow.dll
+C:\Users\Shamil\Documents\crmtest\sharp\Adlr\Adlr.Workflows\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
+C:\Users\Shamil\Documents\crmtest\sharp\Adlr\Adlr.Workflows\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\Shamil\Documents\crmtest\sharp\Adlr\Adlr.Workflows\bin\Debug\Microsoft.Xrm.Sdk.Workflow.xml
+C:\Users\Shamil\Documents\crmtest\sharp\Adlr\Adlr.Workflows\obj\Debug\Adlr.Workflows.csproj.CoreCompileInputs.cache
+C:\Users\Shamil\Documents\crmtest\sharp\Adlr\Adlr.Workflows\obj\Debug\Adlr.Workflows.csproj.CopyComplete
+C:\Users\Shamil\Documents\crmtest\sharp\Adlr\Adlr.Workflows\obj\Debug\Adlr.Workflows.dll
+C:\Users\Shamil\Documents\crmtest\sharp\Adlr\Adlr.Workflows\obj\Debug\Adlr.Workflows.pdb
+C:\Users\Shamil\Documents\crmtest\sharp\Adlr\Adlr.Workflows\obj\Debug\Adlr.Workflows.csproj.AssemblyReference.cache

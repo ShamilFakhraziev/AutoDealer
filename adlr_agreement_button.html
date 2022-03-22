@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <script async src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+        <script src="ClientGlobalContext.js.aspx" type="text/javascript"></script>
+        <script>
+            function onCalculationBtnClick(){
+                let agrSum, agrInitialPayment, agrCreditPeriod, agrCreditSumAtr;
+
+                agrSum = parent.Xrm.Page.getAttribute("adlr_summa").getValue();
+                agrInitialPayment = parent.Xrm.Page.getAttribute("adlr_initialfee").getValue();
+                agrCreditPeriod = parent.Xrm.Page.getAttribute("adlr_creditperiod").getValue();
+                agrCreditSumAtr = parent.Xrm.Page.getAttribute("adlr_creditamount");
+
+                if(agrSum==null) {
+                    console.log("Введите сумму договора");
+                    return;
+                }
+                
+                if(agrCreditPeriod==null){
+                    console.log("Введите срок кредита");
+                    return;
+                }
+                let creditSum = agrSum - agrInitialPayment;
+                agrCreditSumAtr.setValue(creditSum);
+
+                let creditProgram = parent.Xrm.Page.getAttribute("adlr_creditid").getValue();
+                let creditProgramRef = creditProgram[0];
+
+                parent.Xrm.WebApi.retrieveRecord("adlr_credit", creditProgramRef.id, "?$select=adlr_percent").then(
+                    function success(result) {
+                        let creditProgramPercent = result.adlr_percent;
+                        let creditFullCost = (creditProgramPercent/100 * agrCreditPeriod * creditSum) + creditSum;
+
+                        parent.Xrm.Page.getAttribute("adlr_fullcreditamount").setValue(creditFullCost);
+                    },
+                    function (error) {
+                        console.log(error.message);
+                    }
+                );
+            }
+        </script>
+    </head>
+    <body>
+        <button type="button" class="btn btn-primary p-0 m-0 btn-lg" onclick="onCalculationBtnClick()">
+            Пересчитать кредит
+        </button>
+    </body>
+</html>
+
